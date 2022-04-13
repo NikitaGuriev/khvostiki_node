@@ -1,0 +1,67 @@
+<header>
+  <div class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper">
+        <div class="container">
+          <a href="/" class="brand-logo">&laquo;Хвостики&raquo;</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            {{#if isIndexPage}}
+              <li class="active"><a href="/">Главная</a></li>
+            {{else}}
+              <li><a href="/">Главная</a></li>
+            {{/if}}
+
+            {{#if isFoundAHomePage}}
+              <li class="active"><a href="/found_a_home">Нашли дом</a></li>
+            {{else}}
+              <li><a href="/found_a_home">Нашли дом</a></li>
+            {{/if}}
+
+            {{#if isSearchPage}}
+              <li class="active"><a href="/search">Поиск</a></li>
+            {{else}}
+              <li><a href="/search">Поиск</a></li>
+            {{/if}}
+
+            {{#if isContactsPage}}
+              <li class="active"><a href="/contacts">Контакты</a></li>
+            {{else}}
+              <li><a href="/contacts">Контакты</a></li>
+            {{/if}}
+
+            {{#if isGalleryPage}}
+              <li class="active"><a href="/gallery">Галерея</a></li>
+            {{else}}
+              <li><a href="/gallery">Галерея</a></li>
+            {{/if}}
+
+            {{#if isAuth}}
+              <li class="dropdown-trigger" data-target='adminMenu'>
+                <a href="#">Меню Администратора<i class="material-icons right">arrow_drop_down</i></a>
+              </li>
+              <ul id='adminMenu' class='dropdown-content'>
+                <li><a href="/add_ad">Добавить объявление</a></li>
+                <li><a href="/stats">Статистика</a></li>
+                <li><a href="/animals_list">Список животных</a></li>
+              </ul>
+            {{/if}}
+
+            {{#if isAuth}}
+              {{#if isSignInPage}}
+                <li class="active"><a href="/sign_out">Выход</a></li>
+              {{else}}
+                <li><a href="/sign_out">Выход</a></li>
+              {{/if}}
+            {{else}}
+              {{#if isSignInPage}}
+                <li class="active"><a href="/sign_in">Вход</a></li>
+              {{else}}
+                <li><a href="/sign_in">Вход</a></li>
+              {{/if}}
+            {{/if}}
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>

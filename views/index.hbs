@@ -1,0 +1,114 @@
+<!-- Меню навигации -->
+{{>navbar}}
+
+<main>
+    <div class="container slide-from-bottom">
+        {{# if ADS.length}}
+            <div class="row" id="adsBlock">
+                {{#each ADS}}
+                    <div class="col s12 m12 l4">
+                        <div class="card">
+                            <div class="card-image">
+                                <img
+                                        src="{{img_link}}"
+                                        alt="Animal photo" class="materialboxed">
+                            </div>
+                            <div class="card-content">
+                                <div class="row">
+                                    <div class="col s12 m12 l12">
+                                        <h5>{{title}}</h5>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col s12 m12 l12">
+                                        {{text}}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col s6 m6 l6">
+                                        <a class="waves-effect btn" href="tel:{{tel}}">
+                                            {{tel}} {{tel_resp}}
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col s12 m12 l12">
+                                        {{#if is_girl }}
+                                            <div class="chip">Самка</div>
+                                        {{else}}
+                                            <div class="chip">Самец</div>
+                                        {{/if}}
+                                        {{#if is_dog }}
+                                            <div class="chip">Собака</div>
+                                        {{else}}
+                                            <div class="chip">Кошка</div>
+                                        {{/if}}
+                                        {{#if is_adult }}
+                                            <div class="chip">Взрослое животное</div>
+                                        {{else}}
+                                            <div class="chip">Подросток</div>
+                                        {{/if}}
+                                        {{#if is_girl}}
+                                            {{#if is_sterility }}
+                                                <div class="chip">Стерильное</div>
+                                            {{else}}
+                                                <div class="chip">Не стерильное</div>
+                                            {{/if}}
+                                        {{else}}
+                                            {{#if is_castrated }}
+                                                <div class="chip">Кастрированное</div>
+                                            {{else}}
+                                                <div class="chip">Не кастрированное</div>
+                                            {{/if}}
+                                        {{/if}}
+                                        <div class="chip">{{publish_date}}</div>
+                                        <a href="https://yandex.ru/maps/-/CCUqROHOxA"
+                                           class="light-blue-text chip tooltipped"
+                                           target="_blank" data-position="bottom" data-tooltip="Открыть Яндекс.Карты">Пойковский</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-action">
+                                <a class="waves-effect btn" href="/ad/{{id}}" target="_blank">
+                                    Подробнее
+                                </a>
+                                {{#if @root.isAuth}}
+                                    <a class="waves-effect btn grey" href="/ad/{{id}}/archive">
+                                        <i class="material-icons">archive</i>
+                                    </a>
+                                    <a class="waves-effect btn cyan" href="/ad/{{id}}/edit">
+                                        <i class="material-icons">edit</i>
+                                    </a>
+                                    <a class="waves-effect btn red" href="/ad/{{id}}/delete">
+                                        <i class="material-icons">delete_forever</i>
+                                    </a>
+                                {{/if}}
+                            </div>
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+            <div class="row">
+                <div class="col s12 m12 l12 center-align">
+                    <a class="waves-effect btn" id="loadMore">
+                        Загрузить еще...
+                    </a>
+                </div>
+            </div>
+        {{else}}
+            <div class="row">
+                <div class="col s12 m12 l12 center-align">
+                    <div class="card-panel">
+                        Объявлений нет
+                    </div>
+                </div>
+            </div>
+        {{/if}}
+    </div>
+</main>
+
+<!-- Футер приложения -->
+{{>footer}}
+
+<!-- Скрипты приложения -->
+{{>scripts}}

@@ -1,0 +1,49 @@
+<!-- Меню навигации -->
+{{>navbar}}
+
+<div class="container slide-from-bottom">
+  <div class="row">
+    <form class="col s12 m12 l12" action="/sign_in" method="post">
+      <div class="card">
+        <div class="card-content">
+          {{#if passwordError}}
+            <div class="card-panel red white-text">
+              {{passwordError}}
+            </div>
+          {{/if}}
+          {{#if loginError}}
+            <div class="card-panel red white-text">
+              {{loginError}}
+            </div>
+          {{/if}}
+          <div class="row">
+            <div class="input-field col s12 m12 l12">
+              <em class="material-icons prefix">account_circle</em>
+              <input id="login" type="text" name="login" class="validate">
+              <label for="login">Введите логин</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12 m12 l12">
+              <i class="material-icons prefix">password</i>
+              <input id="password" type="password" name="password" class="validate">
+              <label for="password">Введите пароль</label>
+            </div>
+          </div>
+          <div class="row center-align">
+            <div class="col s12 m12 l12">
+              <input type="hidden" name="_csrf" value="{{csrf}}">
+              <button class="waves-effect btn" type="submit">Войти</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Футер приложения -->
+{{>footer}}
+
+<!-- Скрипты приложения -->
+{{>scripts}}

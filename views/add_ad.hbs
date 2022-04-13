@@ -1,0 +1,146 @@
+<!-- Меню навигации -->
+{{>navbar}}
+
+<div class="container slide-from-bottom">
+    <div class="row">
+        <form class="col s12 m12 l12" action="/add_ad" method="post" enctype="multipart/form-data">
+            <div class="card">
+                <div class="card-content">
+                    {{#if addAdError}}
+                        <div class="card-panel red white-text">
+                            {{addAdError}}
+                        </div>
+                    {{/if}}
+                    <div class="row">
+                        <div class="input-field col s12 m12 l12">
+                            <i class="material-icons prefix">short_text</i>
+                            <input id="title" type="text" class="validate" name="title" required>
+                            <label for="title">Заголовок</label>
+                            <span class="helper-text" data-error="Поле не может быть пустым">Обязательное поле</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12 m12 l12">
+                            <div class="row">
+                                <div class="input-field col s12 m12 l12">
+                                    <i class="material-icons prefix">title</i>
+                                    <textarea name="text" id="text" class="materialize-textarea" cols="20"
+                                              required></textarea>
+                                    <label for="text">Описание</label>
+                                    <span class="helper-text"
+                                          data-error="Поле не может быть пустым">Обязательное поле</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s6 m6 l6">
+                            <i class="material-icons prefix">phone</i>
+                            <input id="tel" type="tel" class="validate" name="tel" required>
+                            <label for="tel">Телефон ответственного</label>
+                            <span class="helper-text" data-error="Поле не может быть пустым">Обязательное поле</span>
+                        </div>
+                        <div class="input-field col s6 m6 l6">
+                            <i class="material-icons prefix">person</i>
+                            <input id="tel_resp" type="text" class="validate" name="tel_resp" required>
+                            <label for="tel_resp">Имя ответственного</label>
+                            <span class="helper-text" data-error="Поле не может быть пустым">Обязательное поле</span>
+                        </div>
+                    </div>
+                    <div class="row center-align">
+                        <div class="col s12 m12 l12">
+                            <div class="switch">
+                                <label>
+                                    Мальчик
+                                    <input type="checkbox" name="is_girl">
+                                    <span class="lever"></span>
+                                    Девочка
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row center-align">
+                        <div class="col s12 m12 l12">
+                            <div class="switch">
+                                <label>
+                                    Кошка/кот
+                                    <input type="checkbox" name="is_dog">
+                                    <span class="lever"></span>
+                                    Собака/пёс
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row center-align">
+                        <div class="col s12 m12 l12">
+                            <div class="switch">
+                                <label>
+                                    Маленькая/подросток
+                                    <input type="checkbox" name="is_adult">
+                                    <span class="lever"></span>
+                                    Взрослая
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row center-align">
+                        <div class="col s12 m12 l12">
+                            <div class="switch">
+                                <label>
+                                    Не стерильная
+                                    <input type="checkbox" name="is_sterility">
+                                    <span class="lever"></span>
+                                    Стерильная
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row center-align">
+                        <div class="col s12 m12 l12">
+                            <div class="switch">
+                                <label>
+                                    Не кастрированный
+                                    <input type="checkbox" name="is_castrated">
+                                    <span class="lever"></span>
+                                    Кастрированный
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <!--<div class="row">
+                        <div class="input-field col s12 m12 l12">
+                            <i class="material-icons prefix">link</i>
+                            <input id="img_link" type="text" class="validate" name="img_link" required>
+                            <label for="img_link">Ссылка на изображение</label>
+                            <span class="helper-text" data-error="Поле не может быть пустым">Обязательное поле</span>
+                        </div>
+                    </div>-->
+                    <div class="file-field input-field">
+                        <div class="btn">
+                            <span>Загрузить фото</span>
+                            <input type="file" name="animal_photo" multiple>
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text"
+                                   placeholder="Загрузите один или несколько файлов"
+                                   id="file_input">
+                            <label for="file_input"></label>
+                        </div>
+                    </div>
+                    <div class="row center-align">
+                        <div class="col s12 m12 l12">
+                            <input type="hidden" name="_csrf" value="{{csrf}}">
+                            <button class="waves-effect btn" type="submit">Добавить</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Футер приложения -->
+{{>footer}}
+
+<!-- Скрипты приложения -->
+{{>scripts}}

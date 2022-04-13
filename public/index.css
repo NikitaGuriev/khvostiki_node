@@ -1,0 +1,50 @@
+/**
+Пользовательский CSS
+ */
+.sn_img {
+  width: 48px;
+  height: 48px;
+}
+
+/**
+Кастомизация Materialize
+ */
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+/**
+Блок анимаций
+ */
+.slide-from-bottom {
+  -webkit-animation: slide-from-bottom 0.3s ease-in-out;
+  animation: slide-from-bottom 0.3s ease-in-out;
+}
+
+@-webkit-keyframes slide-from-bottom {
+  0% {
+    margin-top: 4rem;
+    opacity: 0;
+  }
+  100% {
+    margin-bottom: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes slide-from-bottom {
+  0% {
+    margin-top: 4rem;
+    opacity: 0;
+  }
+  100% {
+    margin-bottom: 0;
+    opacity: 1;
+  }
+}
